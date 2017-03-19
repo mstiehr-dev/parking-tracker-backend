@@ -1,7 +1,8 @@
 package com.mstiehr.controller;
 
-/**
- * Created by maltin on 18.03.17.
- */
-public class CarController {
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController(value = "cars")
+public class CarController
+{
 }
