@@ -1,10 +1,23 @@
 package com.mstiehr.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Driver
 {
+    @Id
+    @Column(name = "ID")
     private long id; // should ORM take care of an id?
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password; // probably hash of an passphrase
 
     public Driver() {
