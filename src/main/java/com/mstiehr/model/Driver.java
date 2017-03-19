@@ -1,8 +1,7 @@
 package com.mstiehr.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Driver
@@ -19,6 +18,13 @@ public class Driver
 
     @Column(name = "password")
     private String password; // probably hash of an passphrase
+
+    @ManyToMany
+    @JoinTable(
+            name = "DRIVER_CAR",
+            joinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "CAR_ID", referencedColumnName = "ID"))
+    private List<Car> cars;
 
     public Driver() {
     }
@@ -60,5 +66,13 @@ public class Driver
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }

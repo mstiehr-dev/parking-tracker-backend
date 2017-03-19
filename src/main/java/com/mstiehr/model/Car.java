@@ -3,6 +3,8 @@ package com.mstiehr.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 public class Car
@@ -13,6 +15,9 @@ public class Car
 
     @Column(name = "POSITION")
     private Position position;
+
+    @ManyToMany(mappedBy = "carsList")
+    private List<Driver> drivers;
 
     public Car() {
     }
@@ -36,5 +41,13 @@ public class Car
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 }
