@@ -1,13 +1,8 @@
 package com.mstiehr.model;
 
-import java.util.UUID;
-
-/**
- * Created by maltin on 18.03.17.
- */
 public class Driver
 {
-    private UUID id; // should ORM take care of an id?
+    private long id; // should ORM take care of an id?
     private String username;
     private String email;
     private String password; // probably hash of an passphrase
@@ -15,18 +10,18 @@ public class Driver
     public Driver() {
     }
 
-    public Driver(UUID id, String username, String email, String password) {
+    public Driver(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 

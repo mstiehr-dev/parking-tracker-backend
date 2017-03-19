@@ -1,28 +1,23 @@
 package com.mstiehr.model;
 
-import java.util.UUID;
-
-/**
- * Created by maltin on 18.03.17.
- */
 public class Car
 {
-    private UUID id;
+    private long id;
     private Position position;
 
     public Car() {
     }
 
-    public Car(UUID id, Position position) {
+    public Car(long id, Position position) {
         this.id = id;
         this.position = position;
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 
