@@ -1,11 +1,19 @@
 package com.mstiehr.model;
 
-/**
- * Created by maltin on 18.03.17.
- */
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Position
 {
+    @Id
+    @Column(name = "ID")
+    private long id;
+
+    @Column(name = "longitude")
     private long longitude;
+    @Column(name = "latitude")
     private long latitude;
 
     public Position() {
