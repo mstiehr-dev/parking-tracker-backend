@@ -7,25 +7,35 @@ import java.util.List;
 public class Car
 {
     @Id
-    @Column(name = "ID")
+    @GeneratedValue
     private long id;
-
-    @Column(name = "POSITION")
-    private long position;
-
-    @ManyToMany
-    @JoinTable(
-            name = "CAR_DRIVER",
-            joinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "CAR_ID", referencedColumnName = "ID"))
-    private List<Driver> drivers;
+    private String description;
+    private double latitude;
+    private double longitude;
 
     public Car() {
     }
 
-    public Car(long id, long position) {
+    public Car(long id, double latitude, double longitude) {
         this.id = id;
-        this.position = position;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public long getId() {
@@ -36,19 +46,11 @@ public class Car
         this.id = id;
     }
 
-    public long getPosition() {
-        return position;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPosition(long position) {
-        this.position = position;
-    }
-
-    public List<Driver> getDrivers() {
-        return drivers;
-    }
-
-    public void setDrivers(List<Driver> drivers) {
-        this.drivers = drivers;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

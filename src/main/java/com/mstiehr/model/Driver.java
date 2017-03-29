@@ -7,23 +7,13 @@ import java.util.List;
 public class Driver
 {
     @Id
-    @Column(name = "ID")
+    @GeneratedValue
     private long id; // should ORM take care of an id?
-
-    @Column(name = "username")
     private String username;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "password")
     private String password; // probably hash of an passphrase
 
     @ManyToMany
-    @JoinTable(
-            name = "DRIVER_CAR",
-            joinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "CAR_ID", referencedColumnName = "ID"))
     private List<Car> cars;
 
     public Driver() {
