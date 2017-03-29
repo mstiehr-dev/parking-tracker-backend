@@ -1,0 +1,10 @@
+insert into car values (1, 'Mazda 3', 51.063359, 13.745822);
+insert into car values (2, 'Golf VI', 51.561943, 13.556371);
+insert into driver values (1, 'maltin@pisces.uberspace.de', '', 'maltin');
+insert into driver values(2, 'anne@maltin.pisces.uberspace.de', '', 'mauwie');
+insert into driver values(3, 'siegmar-stiehr@gmail.com', '', 'siegmar');
+insert into driver values(4, 'tina-stiehr@gmail.com', '', 'tina');
+insert into driver_cars values(1,1);
+insert into driver_cars values(2,1);
+insert into driver_cars values(3,2);
+insert into driver_cars values(4,2);
