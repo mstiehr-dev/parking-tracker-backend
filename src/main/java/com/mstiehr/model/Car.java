@@ -1,9 +1,6 @@
 package com.mstiehr.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,15 +11,19 @@ public class Car
     private long id;
 
     @Column(name = "POSITION")
-    private Position position;
+    private long position;
 
-    @ManyToMany(mappedBy = "carsList")
+    @ManyToMany
+    @JoinTable(
+            name = "CAR_DRIVER",
+            joinColumns = @JoinColumn(name = "DRIVER_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "CAR_ID", referencedColumnName = "ID"))
     private List<Driver> drivers;
 
     public Car() {
     }
 
-    public Car(long id, Position position) {
+    public Car(long id, long position) {
         this.id = id;
         this.position = position;
     }
@@ -35,11 +36,11 @@ public class Car
         this.id = id;
     }
 
-    public Position getPosition() {
+    public long getPosition() {
         return position;
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(long position) {
         this.position = position;
     }
 
