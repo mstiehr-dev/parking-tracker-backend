@@ -7,7 +7,7 @@ import java.util.List;
 public class Car
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private long id;
     private String description;
     private double latitude;

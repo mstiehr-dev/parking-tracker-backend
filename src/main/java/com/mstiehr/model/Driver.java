@@ -7,8 +7,8 @@ import java.util.List;
 public class Driver
 {
     @Id
-    @GeneratedValue
-    private long id; // should ORM take care of an id?
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private long id;
     private String username;
     private String email;
     private String password; // probably hash of an passphrase
