@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/drivers")
@@ -40,7 +41,7 @@ public class DriverController
     {
         Driver driver = driverRepository.findById(driverId);
 
-        return driver.getCars();
+        return null != driver ? driver.getCars() : Collections.EMPTY_LIST;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
