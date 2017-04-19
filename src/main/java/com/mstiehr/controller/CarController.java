@@ -13,7 +13,6 @@ import java.util.Collection;
 @RequestMapping("cars")
 public class CarController
 {
-    // todo: list cars
     @Autowired
     CarRepository carRepository;
 
@@ -37,8 +36,7 @@ public class CarController
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addCarForm()
-    {
-        // return form (maybe even thymeleaf template?
+    {   // return form (maybe even thymeleaf template?)
         StringBuilder sb = new StringBuilder();
 
         sb.append("<form method='POST'>\n");
