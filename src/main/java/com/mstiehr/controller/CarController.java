@@ -1,6 +1,7 @@
 package com.mstiehr.controller;
 
 import com.mstiehr.model.Car;
+import com.mstiehr.model.Driver;
 import com.mstiehr.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
+import java.util.Collections;
 
 @RestController
 @RequestMapping("cars")
@@ -32,6 +34,15 @@ public class CarController
         Car c = carRepository.findById(carId);
 
         return c;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/{carId}/drivers")
+    public Collection<Driver> getDriversByCarId(@PathVariable long carId)
+    {
+        Car car = carRepository.findById(carId);
+
+        return car!=null ? car.getDrivers() : Collections.EMPTY_LIST;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

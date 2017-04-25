@@ -13,6 +13,9 @@ public class Car
     private double latitude;
     private double longitude;
 
+    @ManyToMany(mappedBy = "cars")
+    private List<Driver> drivers;
+
     public Car() {
     }
 
@@ -52,5 +55,13 @@ public class Car
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<Driver> drivers) {
+        this.drivers = drivers;
     }
 }
