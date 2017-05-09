@@ -51,9 +51,9 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
-			<groupId>postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4.1208-jdbc42-atlassian-hosted</version>
+			<version>9.4.1212</version>
 		</dependency>
 
 		<dependency>
@@ -61,6 +61,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -69,8 +70,31 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.11</version>
+				<configuration>
+					<imageName>${env.USER}/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>Atlassian 3rd-Party Repository</id>
+			<name>Atlassian 3rd-Party Repository</name>
+			<url>https://maven.atlassian.com/3rdparty/</url>
+		</repository>
+	</repositories>
 
 </project>
